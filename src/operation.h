@@ -1,13 +1,16 @@
-#pragma once
-#ifndef OPERATIONHEADER
-#define OPERATIONHEADER
-#endif
-#include "pieces.h"
+ #pragma once 
+ #include "player.h"
 
-class Operation {
+ class Operation {
     public:
+        Player* playerToMove;
         char charOfPiece;
         bool isCapture = false;
-        int8_t toRow;
-        int8_t toCol;
+        uint8_t toSquare;
+        uint8_t fromSquare;
+        int8_t disambigFile = -1;
+        int8_t disambigRank = -1;
+
+        static inline Operation Translate(std::string toTranslate, Player* player);
+        
 };
